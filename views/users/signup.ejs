@@ -1,0 +1,63 @@
+<%layout("/layouts/boilerplate")%>
+
+<div class="row d-flex justify-content-center">
+  <div class="col-lg-8 col-md-8 col-sm-10">
+    <h4 class="text-center text-success">Signup For Wanderlust</h4>
+    <form action="/signup" method="post" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          required
+        />
+        <div class="invalid-feedback">Please enter a username.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          required
+        />
+        <div class="invalid-feedback">Please enter a  valid email.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          required
+        />
+        <div class="invalid-feedback">Please enter a  valid email.</div>
+        <button class="btn btn-success my-3">Signup</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+    (function () {
+      'use strict';
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation');
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
